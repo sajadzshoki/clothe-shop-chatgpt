@@ -1,3 +1,5 @@
+Chatgpt questions I asked
+
 ## 1.
 create a clothe shop app from scratch with reactJS using tailwind ,
 minimalist black and white theme ,
@@ -7,39 +9,54 @@ a slider hero section with some t-shirt pictures which is taken from a free api
 ## 2.
 add a footer section with usual things in it 
 
-3.
+## 3.
 make the next and prev button in heroSlider more beautiful 
 
-4.
+## 4.
 make a section under hero which contains best selling products in 4 individual cards that contains the image , the name , the price and related info about that product, add to basket icon use the same api
 
-5.
+## 5.
 move the add to basket button to the bottom of the cards
 
-6.
+## 6.
 set the max width of screen to 1600px
 
-7.
+## 7.
 in our products section add the products categories such as suit , jacket , shoes , ... , use the same unsplash API or make static data
 
-8.
+## 8.
 style the ProductCategories different 
 
-9.
+## 9.
 style it completely different , don't make cards
 
-10.
+## 10.
 the suit and shoes imageurl are not working
 
-11.
+## 11.
 change the productCategories component's static data to dynamic data with same unsplash data
 
-12.
+## 12.
 make the api fetching functional, so I don't have to call it in each component separately 
 
-13.
+## 13.
 update the bestSellingProducts and hero Slider components too
 
-14.
+## 14.
 make four pages for the app , one the home page that we are currently in it , second page for each category , third for the product full information and forth for the shopping basket ;
 use react Router for it
+
+## 15.
+make the navbar sticky to top
+
+## 16.
+make a contact us form section in homepage
+
+## 17.
+resposive the navbar
+
+## 18.
+this is my updated navbar components , save it in your datacenter
+
+## 19.
+add pants and hat to our ProductCategories in homepage

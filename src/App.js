@@ -1,35 +1,26 @@
-// src/App.js
-import React from "react";
-import Navbar from "./components/Navbar";
-import HeroSlider from "./components/HeroSlider";
-import Footer from "./components/Footer";
-import BestSellingProducts from "./components/BestSellingProducts";
-import ProductCategories from "./components/ProductCategories";
 
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import CategoryPage from './pages/CategoryPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import ShoppingBasketPage from './pages/ShoppingBasketPage';
+import Navbar from '../src/components/Navbar';
+import Footer from '../src/components/Footer';
 function App() {
   return (
-    <div className="bg-white text-black min-h-screen flex flex-col justify-between">
-      {/* Set max-width to 1600px and center content */}
+    <Router>
       <div className="max-w-screen-2xl mx-auto w-full">
-        <Navbar />
-        <HeroSlider />
-        <BestSellingProducts />
-        <section id="products" className="p-10">
-          <ProductCategories />
-        </section>
-        <section id="about" className="p-10">
-          <h2 className="text-2xl font-bold">About Us</h2>
-          <p className="mt-4">
-            Welcome to ClotheShop, your destination for minimalist fashion!
-          </p>
-        </section>
-        <section id="contact" className="p-10">
-          <h2 className="text-2xl font-bold">Contact Us</h2>
-          <p className="mt-4">Feel free to reach out for any inquiries.</p>
-        </section>
+          <Navbar/>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />
+          <Route path="/product/:productId" element={<ProductDetailPage />} />
+          <Route path="/basket" element={<ShoppingBasketPage />} />
+        </Routes>
+        <Footer/>
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 

@@ -6,6 +6,8 @@ const categories = [
   { name: 'Jacket', query: 'jacket' },
   { name: 'Shoes', query: 'shoes' },
   { name: 'T-Shirts', query: 't-shirt' },
+  { name: 'Pants', query: 'pants' },   // Added Pants
+  { name: 'Hat', query: 'hat' },       // Added Hat
 ];
 
 const ProductCategories = () => {

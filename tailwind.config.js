@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        'screen-2xl': '1600px',
+        'screen-2xl': '1800px',
       },
     },
   },
