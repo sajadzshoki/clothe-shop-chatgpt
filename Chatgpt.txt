@@ -1,0 +1,24 @@
+create a clothe shop app from scratch with reactJS using tailwind ,
+minimalist black and white theme ,
+navbar with contact us , about , products menus and a searchbar ,
+a slider hero section with some t-shirt pictures which is taken from a free api
+
+add a footer section with usual things in it 
+
+make the next and prev button in heroSlider more beautiful 
+
+make a section under hero which contains best selling products in 4 individual cards that contains the image , the name , the price and related info about that product, add to basket icon use the same api
+
+move the add to basket button to the bottom of the cards
+
+set the max width of screen to 1600px
+
+in our products section add the products categories such as suit , jacket , shoes , ... , use the same unsplash API or make static data
+
+style the ProductCategories different 
+
+style it completely different , don't make cards
+
+the suit and shoes imageurl are not working
+
+change the productCategories component's static data to dynamic data with same unsplash data
