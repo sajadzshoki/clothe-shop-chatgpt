@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchUnsplashImages } from '../services/unsplashService'; // Import the utility
 
-// Replace this with your Unsplash Access Key
-const UNSPLASH_ACCESS_KEY = 'MsEJqj7fxtDzBjghuqVTrvL0mSuAljzoZ2lkl9LC7qo';
-
-// List of categories and search terms
 const categories = [
   { name: 'Suit', query: 'suit' },
   { name: 'Jacket', query: 'jacket' },
@@ -16,26 +12,21 @@ const ProductCategories = () => {
   const [categoryImages, setCategoryImages] = useState([]);
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchImagesForCategories = async () => {
       const fetchedImages = await Promise.all(
         categories.map(async (category) => {
-          const response = await axios.get(`https://api.unsplash.com/search/photos`, {
-            params: { query: category.query, per_page: 1 },
-            headers: {
-              Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
-            },
-          });
+          const images = await fetchUnsplashImages(category.query, 1); // Fetching 1 image per category
           return {
             name: category.name,
-            imageUrl: response.data.results[0]?.urls?.regular,
-            description: `${category.name} description`, // You can also fetch real descriptions or use static ones
+            imageUrl: images[0]?.urls?.regular || '', // Fallback if no image is found
+            description: `${category.name} description`,
           };
         })
       );
       setCategoryImages(fetchedImages);
     };
 
-    fetchImages();
+    fetchImagesForCategories();
   }, []);
 
   return (

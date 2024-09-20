@@ -1,53 +1,58 @@
-// src/components/BestSellingProducts.js
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from 'react';
+import { fetchUnsplashImages } from '../services/unsplashService'; // Importing the utility
+
+const bestSellingItems = [
+  { name: 'Premium Suit', query: 'premium suit' },
+  { name: 'Leather Jacket', query: 'leather jacket' },
+  { name: 'Designer Shoes', query: 'designer shoes' },
+  { name: 'Classic T-Shirt', query: 'classic t-shirt' },
+];
 
 const BestSellingProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.unsplash.com/search/photos?query=t-shirt&client_id=MsEJqj7fxtDzBjghuqVTrvL0mSuAljzoZ2lkl9LC7qo&per_page=4`
-        );
-        setProducts(response.data.results);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
+    const fetchBestSellingProducts = async () => {
+      const fetchedProducts = await Promise.all(
+        bestSellingItems.map(async (item) => {
+          const images = await fetchUnsplashImages(item.query, 1); // Fetching 1 image for each product
+          return {
+            name: item.name,
+            price: '$99.99', // Static price for now; this can be dynamic later
+            imageUrl: images[0]?.urls?.regular || '', // Fallback if no image is found
+            description: `High-quality ${item.name} for your wardrobe.`,
+          };
+        })
+      );
+      setProducts(fetchedProducts);
     };
 
-    fetchProducts();
+    fetchBestSellingProducts();
   }, []);
 
   return (
-    <section className="p-10">
-    <h2 className="text-3xl font-bold mb-8 text-center">Best Selling Products</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-      {products.map((product) => (
-        <div key={product.id} className="border border-gray-200 rounded-lg shadow-lg overflow-hidden bg-white flex flex-col">
-          <img 
-            src={product.urls.regular} 
-            alt={product.alt_description} 
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-4 flex-grow">
-            <h3 className="font-semibold text-lg">{product.alt_description || 'T-Shirt'}</h3>
-            <p className="text-gray-600">$29.99</p>
-            <p className="text-gray-400 text-sm mt-2">Stylish and comfortable, perfect for everyday wear.</p>
+    <section className="p-10 bg-white">
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Best Selling Products</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {products.map((product) => (
+          <div key={product.name} className="bg-gray-100 p-4 rounded-lg shadow-lg">
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              className="h-40 w-full object-cover rounded-t-lg"
+            />
+            <div className="p-4">
+              <h3 className="text-2xl font-semibold">{product.name}</h3>
+              <p className="text-lg text-gray-700">{product.description}</p>
+              <p className="text-lg font-bold text-gray-900 mt-2">{product.price}</p>
+              <button className="w-full mt-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition duration-300">
+                Add to Basket
+              </button>
+            </div>
           </div>
-          <div className="p-4">
-            <button className="w-full bg-black text-white py-2 rounded-full hover:bg-gray-800 flex items-center justify-center">
-              <FontAwesomeIcon icon={faShoppingBasket} className="mr-2" />
-              Add to Basket
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
+        ))}
+      </div>
+    </section>
   );
 };
 

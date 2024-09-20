@@ -1,62 +1,63 @@
-// src/components/HeroSlider.js
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { fetchUnsplashImages } from '../services/unsplashService'; // Importing the utility
+
+const sliderItems = [
+  { name: 'Featured Suit', query: 'featured suit' },
+  { name: 'Winter Jacket', query: 'winter jacket' },
+  { name: 'Luxury Shoes', query: 'luxury shoes' },
+];
 
 const HeroSlider = () => {
-  const [images, setImages] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slides, setSlides] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.unsplash.com/search/photos?query=t-shirt&client_id=MsEJqj7fxtDzBjghuqVTrvL0mSuAljzoZ2lkl9LC7qo&per_page=5`
-        );
-        setImages(response.data.results);
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
+    const fetchSliderImages = async () => {
+      const fetchedSlides = await Promise.all(
+        sliderItems.map(async (item) => {
+          const images = await fetchUnsplashImages(item.query, 1); // Fetch 1 image per slide
+          return {
+            name: item.name,
+            imageUrl: images[0]?.urls?.regular || '', // Fallback if no image is found
+          };
+        })
+      );
+      setSlides(fetchedSlides);
     };
 
-    fetchImages();
+    fetchSliderImages();
   }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
   };
 
   return (
-    <div className="relative w-full h-96 bg-gray-900 text-white">
-      {images.length > 0 && (
-        <>
-          <img
-            src={images[currentIndex].urls.regular}
-            alt={images[currentIndex].alt_description}
-            className="w-full h-full object-cover"
-          />
-          
-          {/* Previous Button */}
-          <button
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-black px-4 py-2 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-2xl focus:outline-none transition-all"
-            onClick={prevSlide}
-          >
-            &#10094; {/* Left arrow icon */}
-          </button>
-          
-          {/* Next Button */}
-          <button
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-black px-4 py-2 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-2xl focus:outline-none transition-all"
-            onClick={nextSlide}
-          >
-            &#10095; {/* Right arrow icon */}
-          </button>
-        </>
+    <section className="relative w-full h-96 overflow-hidden">
+      {slides.length > 0 && (
+        <div className="w-full h-full" style={{ backgroundImage: `url(${slides[currentSlide].imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <h1 className="text-white text-4xl font-bold">{slides[currentSlide].name}</h1>
+          </div>
+        </div>
       )}
-    </div>
+      <button
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300"
+        onClick={prevSlide}
+      >
+        &#10094;
+      </button>
+      <button
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300"
+        onClick={nextSlide}
+      >
+        &#10095;
+      </button>
+    </section>
   );
 };
 
