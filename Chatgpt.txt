@@ -60,3 +60,9 @@ this is my updated navbar components , save it in your datacenter
 
 ## 19.
 add pants and hat to our ProductCategories in homepage
+
+## 20.
+when I click in each category in ProductCategories it takes me to the categorypage with the same category 
+
+## 21.
+now when i click in each product in categorypage in takes me to productDetailpage and shows me full information of that product and add to basket button

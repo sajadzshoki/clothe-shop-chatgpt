@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { fetchUnsplashImages } from '../services/unsplashService'; // Import the utility
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { fetchUnsplashImages } from '../services/unsplashService'; 
 
 const categories = [
   { name: 'Suit', query: 'suit' },
   { name: 'Jacket', query: 'jacket' },
   { name: 'Shoes', query: 'shoes' },
   { name: 'T-Shirts', query: 't-shirt' },
-  { name: 'Pants', query: 'pants' },   // Added Pants
-  { name: 'Hat', query: 'hat' },       // Added Hat
+  { name: 'Pants', query: 'pants' },
+  { name: 'Hat', query: 'hat' },
 ];
 
 const ProductCategories = () => {
   const [categoryImages, setCategoryImages] = useState([]);
+  const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
     const fetchImagesForCategories = async () => {
@@ -20,7 +22,7 @@ const ProductCategories = () => {
           const images = await fetchUnsplashImages(category.query, 1); // Fetching 1 image per category
           return {
             name: category.name,
-            imageUrl: images[0]?.urls?.regular || '', // Fallback if no image is found
+            imageUrl: images[0]?.urls?.regular || '',
             description: `${category.name} description`,
           };
         })
@@ -31,17 +33,21 @@ const ProductCategories = () => {
     fetchImagesForCategories();
   }, []);
 
+  const handleCategoryClick = (categoryName) => {
+    navigate(`/category/${categoryName}`); // Navigate to the category page with the selected category
+  };
+
   return (
     <section id="products" className="p-10 bg-gray-50">
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Our Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categoryImages.map((category) => (
           <div
             key={category.name}
-            className="relative group h-80 w-full bg-gray-900 rounded-lg overflow-hidden"
+            className="relative group h-80 w-full bg-gray-900 rounded-lg overflow-hidden cursor-pointer"
             style={{ backgroundImage: `url(${category.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            onClick={() => handleCategoryClick(category.name)} // Handle click event
           >
-            {/* Overlay for text */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-100 group-hover:opacity-75 transition-opacity duration-300">
               <div className="text-center text-white">
                 <h3 className="text-3xl font-bold mb-2">{category.name}</h3>
