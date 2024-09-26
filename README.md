@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+## This React Project is made only by chatgpt and I,ve just copied the codes and created the folders and files. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chatgpt questions I asked
 
-## Available Scripts
+### 1.
+create a clothe shop app from scratch with reactJS using tailwind ,
+minimalist black and white theme ,
+navbar with contact us , about , products menus and a searchbar ,
+a slider hero section with some t-shirt pictures which is taken from a free api
 
-In the project directory, you can run:
+### 2.
+add a footer section with usual things in it 
 
-### `npm start`
+### 3.
+make the next and prev button in heroSlider more beautiful 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 4.
+make a section under hero which contains best selling products in 4 individual cards that contains the image , the name , the price and related info about that product, add to basket icon use the same api
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 5.
+move the add to basket button to the bottom of the cards
 
-### `npm test`
+### 6.
+set the max width of screen to 1600px
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 7.
+in our products section add the products categories such as suit , jacket , shoes , ... , use the same unsplash API or make static data
 
-### `npm run build`
+### 8.
+style the ProductCategories different 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 9.
+style it completely different , don't make cards
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 10.
+the suit and shoes imageurl are not working
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 11.
+change the productCategories component's static data to dynamic data with same unsplash data
 
-### `npm run eject`
+### 12.
+make the api fetching functional, so I don't have to call it in each component separately 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 13.
+update the bestSellingProducts and hero Slider components too
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 14.
+make four pages for the app , one the home page that we are currently in it , second page for each category , third for the product full information and forth for the shopping basket ;
+use react Router for it
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 15.
+make the navbar sticky to top
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 16.
+make a contact us form section in homepage
 
-## Learn More
+### 17.
+resposive the navbar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 18.
+this is my updated navbar components , save it in your datacenter
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 19.
+add pants and hat to our ProductCategories in homepage
 
-### Code Splitting
+### 20.
+when I click in each category in ProductCategories it takes me to the categorypage with the same category 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 21.
+now when i click in each product in categorypage in takes me to productDetailpage and shows me full information of that product and add to basket button
 
-### Analyzing the Bundle Size
+### 22.
+add loading effect where ever the app needs it
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 23.
+add a functional cart icon to navbar with a working small badge that shows how many products are in the cart 
 
-### Making a Progressive Web App
+### 24.
+add the add to basket function to all of the buttons that are in the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 25.
+let the basket icon badge in navbar show 0 if it's empty
 
-### Advanced Configuration
+### 26.
+style the basketpage with more details and show the total price for the selected products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 27.
+remove button not working , removeFromCart is not a function
+TypeError: removeFromCart is not a function
 
-### Deployment
+### 28.
+if one product is added to basket it should shows the the quantity of in in the basket page not adds it rapidity 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 29.
+change the style of the shown quantity in the basket page
 
-### `npm run build` fails to minify
+### 30.
+I dont't want the basket get refreshed when i refresh the web 
+not working
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 31.
+add more details and show images in the productdetailpage 
+main image is too big and iamges are not loading
+change the images to real images of the product
+
+### 32.
+add another functional useful section to homepage 
+
+### 33.
+change it style to looks different from the best selling products
+
+### 34.
+give me some new ideas for the app features and let me choose which one to add
+
+### 35.
+add the Wishlist Functionality
+style the add to Wishlist button
+save the wishlist to localstorage
+
+### 35.
+is there anything more to add in my homepage which is usual in shopping websites
+add the FAQ and social media feed sections in homepage
+change the social media feed to small round icons of real social media icons
+
+
+
