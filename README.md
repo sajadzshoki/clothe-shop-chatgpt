@@ -1,6 +1,8 @@
 ## This React Project is made only by chatgpt and I,ve just copied the codes and created the folders and files. 
 
 # Chatgpt questions I asked
+<a href=": https://chatgpt.com/share/66f51f58-b354-800a-9d1c-b641e525663b">Chat Link </a>
+
 
 ### 1.
 create a clothe shop app from scratch with reactJS using tailwind ,
