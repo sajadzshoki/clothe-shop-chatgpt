@@ -5,6 +5,7 @@ const sliderItems = [
   { name: 'Featured Suit', query: 'featured suit' },
   { name: 'Winter Jacket', query: 'winter jacket' },
   { name: 'Luxury Shoes', query: 'luxury shoes' },
+  { name: 'Jeans', query: 'Jeans' },
 ];
 
 const HeroSlider = () => {

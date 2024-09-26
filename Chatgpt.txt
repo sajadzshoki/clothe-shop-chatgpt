@@ -66,3 +66,54 @@ when I click in each category in ProductCategories it takes me to the categorypa
 
 ## 21.
 now when i click in each product in categorypage in takes me to productDetailpage and shows me full information of that product and add to basket button
+
+## 22.
+add loading effect where ever the app needs it
+
+## 23.
+add a functional cart icon to navbar with a working small badge that shows how many products are in the cart 
+
+## 24.
+add the add to basket function to all of the buttons that are in the app
+
+## 25.
+let the basket icon badge in navbar show 0 if it's empty
+
+## 26.
+style the basketpage with more details and show the total price for the selected products
+
+## 27.
+remove button not working , removeFromCart is not a function
+TypeError: removeFromCart is not a function
+
+## 28.
+if one product is added to basket it should shows the the quantity of in in the basket page not adds it rapidity 
+
+## 29.
+change the style of the shown quantity in the basket page
+
+## 30.
+I dont't want the basket get refreshed when i refresh the web 
+not working
+
+## 31.
+add more details and show images in the productdetailpage 
+main image is too big and iamges are not loading
+change the images to real images of the product
+
+## 32.
+add another functional useful section to homepage 
+
+## 33.
+change it style to looks different from the best selling products
+
+## 34.
+give me some new ideas for the app features and let me choose which one to add
+
+## 35.
+add the Wishlist Functionality
+style the add to Wishlist button
+save the wishlist to localstorage
+
+
+
