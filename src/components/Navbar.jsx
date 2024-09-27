@@ -1,14 +1,13 @@
-
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
-import { useUser } from '../context/UserContext';
+import { useUser } from "../context/UserContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartCount } = useContext(CartContext);
-  const { user } = useUser(); 
+  const { user } = useUser();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -17,7 +16,9 @@ const Navbar = () => {
     <nav className="bg-black text-white p-4 sticky top-0 z-50 shadow-lg transition-all duration-300">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/">
-          <div className="text-xl font-bold hover:text-indigo-400 transition duration-300">ClotheShop</div>
+          <div className="text-xl font-bold hover:text-indigo-400 transition duration-300">
+            ClotheShop
+          </div>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -30,19 +31,18 @@ const Navbar = () => {
             isOpen ? "block" : "hidden"
           } md:flex md:space-x-6 w-full md:w-auto absolute md:static top-14 left-0 md:left-auto bg-gray-800 md:bg-transparent  shadow-md  px-4 md:px-0 space-y-4 md:space-y-0`}
         >
-           <a
+          <a
             href="/"
             className="block text-lg hover:text-indigo-400 transition duration-300"
           >
             Home
           </a>
-
-          <a
-            href="/#about"
-            className="block text-lg hover:text-indigo-400 transition duration-300"
+          <Link
+            to="/blog"
+            className="text-lg hover:text-indigo-400 transition duration-300"
           >
-            About
-          </a>
+            Blog
+          </Link>
           <a
             href="/#products"
             className="block text-lg hover:text-indigo-400 transition duration-300"
@@ -61,12 +61,14 @@ const Navbar = () => {
           >
             Wishlist
           </Link>
-     
         </div>
 
         <div className="flex items-center space-x-6 md:space-x-4">
           {/* Cart Icon with Badge */}
-          <Link to="/basket" className="relative block text-lg hover:text-indigo-400 transition duration-300">
+          <Link
+            to="/basket"
+            className="relative block text-lg hover:text-indigo-400 transition duration-300"
+          >
             <FaShoppingCart size={24} />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -78,7 +80,7 @@ const Navbar = () => {
           {/* Auth Links */}
           {user ? (
             <span className="text-lg font-medium">
-              {user.user_metadata?.name || 'User'}
+              {user.user_metadata?.name || "User"}
             </span>
           ) : (
             <Link to="/auth">

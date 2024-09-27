@@ -4,10 +4,13 @@ import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import BasketPage from "./pages/BasketPage";
+import AuthPage from "./pages/AuthPage";
+import BlogPage from './pages/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage';
+
 import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
 import WishlistPage from "./pages/WishlistPage";
-import AuthPage from "./pages/AuthPage";
 import Providers from "./Providers"; // Import the new Providers component
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
@@ -29,6 +32,8 @@ function App() {
             <Route path="/basket" element={<BasketPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:postId" element={<BlogDetailPage />} />
           </Routes>
           <Footer />
         </div>

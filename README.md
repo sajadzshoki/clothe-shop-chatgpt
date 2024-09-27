@@ -133,20 +133,31 @@ use something else , instead of firebase , it's doesn't work in my country
 
 ### 39.
 make the user access signup and login page in navbar
+
 ### 40.
 put the login and signup in one page , add signin with google option
+
 ### 41.
 style the authpage better , add name , phone number , address , gender and those things to signup
-### 41.
+
+### 42.
 when user logged-in, the navbar signup section changes to the name of the user
 authListener.unsubscribe is not a function
 
+### 43.
 let the user unhide the password 
 
+### 44.
 my app.js looks like this , make the providers cleaner
 
+### 45.
 turn the Sign Up / Login in navbar to a button 
 
+### 46.
 this is my current navbar change it styles , make it better
 
+### 47.
 make a random number function from 1 to 300 to use it wherever the app has static prices
+how do i use the function here to return me a random price for each product
+
+### 48.
