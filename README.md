@@ -1,12 +1,9 @@
 ### This React Project is made only by chatgpt and I,ve just copied the codes and created the folders and files. 
 
 ## [Chat Link]( https://chatgpt.com/share/66f51f58-b354-800a-9d1c-b641e525663b)
-<<<<<<< HEAD
 
-## Prompts I gave to Chatgpt
-=======
 # Propmts I Gave to Chatgpt
->>>>>>> 64fe6f9e506a5e69c76180a7d710bd19ba3d1741
+
 ### 1.
 create a clothe shop app from scratch with reactJS using tailwind ,
 minimalist black and white theme ,
@@ -143,4 +140,13 @@ style the authpage better , add name , phone number , address , gender and those
 ### 41.
 when user logged-in, the navbar signup section changes to the name of the user
 authListener.unsubscribe is not a function
-TypeError: authListener.unsubscribe is not a function
+
+let the user unhide the password 
+
+my app.js looks like this , make the providers cleaner
+
+turn the Sign Up / Login in navbar to a button 
+
+this is my current navbar change it styles , make it better
+
+make a random number function from 1 to 300 to use it wherever the app has static prices
