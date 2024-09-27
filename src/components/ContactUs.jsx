@@ -21,7 +21,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="contact-us bg-gray-100 py-12 px-4"id="contact">
+    <section className="contact-us bg-gray-100 py-12 px-4"id="contact"data-aos="zoom-out">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-8">Contact Us</h2>
         <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-6 space-y-6">

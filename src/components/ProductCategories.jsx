@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchUnsplashImages } from '../services/unsplashService';
@@ -42,7 +43,7 @@ const ProductCategories = () => {
   };
 
   return (
-    <section id="products" className="p-10 bg-gray-50">
+    <section id="products" className="p-10 bg-gray-50"data-aos="fade-right">
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Our Products</h2>
       {loading ? (
         <LoadingSpinner /> // Show loading spinner while fetching data
@@ -60,7 +61,6 @@ const ProductCategories = () => {
                   <h3 className="text-3xl font-bold mb-2">{category.name}</h3>
                   <p className="text-lg mb-4">{category.description}</p>
                   <a
-                    href="#"
                     className="inline-block px-6 py-2 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition duration-300"
                   >
                     Explore {category.name}

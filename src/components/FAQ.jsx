@@ -28,7 +28,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="container mx-auto p-10">
+    <div className="container mx-auto p-10"data-aos="fade-right">
       <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqData.map((faq, index) => (

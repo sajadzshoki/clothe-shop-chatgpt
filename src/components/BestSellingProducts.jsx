@@ -33,7 +33,7 @@ const BestSellingProducts = () => {
   }, []);
 
   return (
-    <section className="p-10 bg-white">
+    <section className="p-10 bg-white"data-aos="fade-left">
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
         Best Selling Products
       </h2>

@@ -1,7 +1,8 @@
-## This React Project is made only by chatgpt and I,ve just copied the codes and created the folders and files. 
+### This React Project is made only by chatgpt and I,ve just copied the codes and created the folders and files. 
 
-# [Chat Link]( https://chatgpt.com/share/66f51f58-b354-800a-9d1c-b641e525663b)
-# Chatgpt questions I asked
+## [Chat Link]( https://chatgpt.com/share/66f51f58-b354-800a-9d1c-b641e525663b)
+
+## Prompts I gave to Chatgpt
 ### 1.
 create a clothe shop app from scratch with reactJS using tailwind ,
 minimalist black and white theme ,
@@ -117,10 +118,25 @@ add the Wishlist Functionality
 style the add to Wishlist button
 save the wishlist to localstorage
 
-### 35.
+### 36.
 is there anything more to add in my homepage which is usual in shopping websites
 add the FAQ and social media feed sections in homepage
 change the social media feed to small round icons of real social media icons
 
+### 37.
+add scroll effect to homepage components
 
+### 38.
+make a real but simple signup and login page 
+use something else , instead of firebase , it's doesn't work in my country 
 
+### 39.
+make the user access signup and login page in navbar
+### 40.
+put the login and signup in one page , add signin with google option
+### 41.
+style the authpage better , add name , phone number , address , gender and those things to signup
+### 41.
+when user logged-in, the navbar signup section changes to the name of the user
+authListener.unsubscribe is not a function
+TypeError: authListener.unsubscribe is not a function

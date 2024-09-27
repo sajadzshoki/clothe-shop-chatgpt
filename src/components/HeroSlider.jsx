@@ -38,7 +38,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="relative w-full h-96 overflow-hidden">
+    <section className="relative w-full h-96 overflow-hidden"data-aos="zoom-in">
       {slides.length > 0 && (
         <div className="w-full h-full" style={{ backgroundImage: `url(${slides[currentSlide].imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
