@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../context/CartContext'; // Import CartContext
 import { fetchUnsplashImages } from '../services/unsplashService'; // Importing the utility
-
+import { getRandomPrice } from '../utils'; // Adjust the path as needed
 const featuredProducts = [
-  { name: 'Casual Sneakers', query: 'casual sneakers', price: '$49.99' },
-  { name: 'Summer Dress', query: 'summer dress', price: '$39.99' },
-  { name: 'Stylish Backpack', query: 'stylish backpack', price: '$59.99' },
-  { name: 'Formal Shirt', query: 'formal shirt', price: '$29.99' },
+  { name: 'Casual Sneakers', query: 'casual sneakers' },
+  { name: 'Summer Dress', query: 'summer dress' },
+  { name: 'Stylish Backpack', query: 'stylish backpack'},
+  { name: 'Formal Shirt', query: 'formal shirt'},
 ];
 
 const FeaturedProducts = () => {
@@ -20,7 +20,7 @@ const FeaturedProducts = () => {
           const images = await fetchUnsplashImages(item.query, 1); // Fetching 1 image for each product
           return {
             name: item.name,
-            price: item.price,
+            price: `$${getRandomPrice()}.00`,
             imageUrl: images[0]?.urls?.regular || '', // Fallback if no image is found
             description: `Discover the perfect ${item.name} for your collection.`,
           };

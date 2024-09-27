@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { fetchUnsplashImages } from "../services/unsplashService"; // Importing the utility
 import { CartContext } from "../context/CartContext"; // Import CartContext
 import { useWishlist } from "../context/WishlistContext"; // Import useWishlist
+import { getRandomPrice } from '../utils'; // Adjust the path as needed
 const bestSellingItems = [
   { name: "Premium Suit", query: "premium suit" },
   { name: "Leather Jacket", query: "leather jacket" },
@@ -10,6 +11,7 @@ const bestSellingItems = [
 ];
 
 const BestSellingProducts = () => {
+ 
   const [products, setProducts] = useState([]);
   const { addToCart } = useContext(CartContext); // Get addToCart function
   const { addToWishlist } = useWishlist();
@@ -20,7 +22,7 @@ const BestSellingProducts = () => {
           const images = await fetchUnsplashImages(item.query, 1); // Fetching 1 image for each product
           return {
             name: item.name,
-            price: "$99.99", // Static price for now; this can be dynamic later
+            price: `$${getRandomPrice()}.00`, // Static price for now; this can be dynamic later
             imageUrl: images[0]?.urls?.regular || "", // Fallback if no image is found
             description: `High-quality ${item.name} for your wardrobe.`,
           };

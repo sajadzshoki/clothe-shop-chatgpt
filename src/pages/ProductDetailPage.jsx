@@ -5,6 +5,7 @@ import { CartContext } from "../context/CartContext"; // Import CartContext
 import LoadingSpinner from "../components/LoadingSpinner";
 import { fetchUnsplashImages } from "../services/unsplashService"; // Import the utility to fetch images
 import { useWishlist } from "../context/WishlistContext";
+import { getRandomPrice } from '../utils'; // Adjust the path as needed
 const ProductDetailPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -21,7 +22,7 @@ const ProductDetailPage = () => {
         name: `Product ${productId}`,
         description:
           "This is a detailed description of the product. It highlights the main features and benefits.",
-        price: "$29.99",
+        price: `$${getRandomPrice()}.00`,
         mainImageUrl: "", // Will be fetched from Unsplash
         additionalImages: [], // Will be fetched from Unsplash
       };

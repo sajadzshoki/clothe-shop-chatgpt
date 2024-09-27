@@ -28,7 +28,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "block" : "hidden"
-          } md:flex md:space-x-6 w-full md:w-auto absolute md:static top-14 left-0 md:left-auto bg-gray-800 md:bg-transparent md:shadow-none shadow-md md:shadow-none px-4 md:px-0 space-y-4 md:space-y-0`}
+          } md:flex md:space-x-6 w-full md:w-auto absolute md:static top-14 left-0 md:left-auto bg-gray-800 md:bg-transparent  shadow-md  px-4 md:px-0 space-y-4 md:space-y-0`}
         >
            <a
             href="/"
