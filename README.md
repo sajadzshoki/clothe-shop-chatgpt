@@ -1,4 +1,4 @@
-### This React Project is made only by chatgpt and I,ve just copied the codes and created the folders and files. 
+### This React Project is made only by chatgpt and I've just copied the codes and created the folders and files. 
 
 ## [Chat Link]( https://chatgpt.com/share/66f51f58-b354-800a-9d1c-b641e525663b)
 
