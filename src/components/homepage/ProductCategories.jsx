@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchUnsplashImages } from '../services/unsplashService';
-import LoadingSpinner from '../components/LoadingSpinner'; // Import the LoadingSpinner
+import { fetchUnsplashImages } from '../../services/unsplashService';
+import LoadingSpinner from '../LoadingSpinner'; // Import the LoadingSpinner
 
 const categories = [
   { name: 'Suit', query: 'suit' },

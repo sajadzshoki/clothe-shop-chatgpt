@@ -1,16 +1,16 @@
 import React from "react";
 
-import HeroSlider from "../components/HeroSlider";
-import BestSellingProducts from "../components/BestSellingProducts";
-import ProductCategories from "../components/ProductCategories";
-import ContactUs from "../components/ContactUs";
-import FeaturedProducts from "../components/FeaturedProducts";
-import FAQ from "../components/FAQ";
-import SocialMediaFeed from "../components/SocialMediaFeed";
+import Hero from "../components/homepage/Hero";
+import BestSellingProducts from "../components/homepage/BestSellingProducts";
+import ProductCategories from "../components/homepage/ProductCategories";
+import ContactUs from "../components/homepage/ContactUs";
+import FeaturedProducts from "../components/homepage/FeaturedProducts";
+import FAQ from "../components/homepage/FAQ";
+import SocialMediaFeed from "../components/homepage/SocialMediaFeed";
 const HomePage = () => {
   return (
     <div>
-      <HeroSlider />
+      <Hero />
       <BestSellingProducts />
       <ProductCategories />
       <FeaturedProducts />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
 import { useUser } from "../context/UserContext";
-
+import { useWishlist  } from '../context/WishlistContext'; // Import WishlistContext
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartCount } = useContext(CartContext);
@@ -11,7 +11,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  const { wishlist } = useWishlist();
   return (
     <nav className="bg-black text-white p-4 sticky top-0 z-50 shadow-lg transition-all duration-300">
       <div className="container mx-auto flex justify-between items-center">
@@ -55,11 +55,13 @@ const Navbar = () => {
           >
             Contact Us
           </a>
-          <Link
-            to="/wishlist"
-            className="block text-lg hover:text-indigo-400 transition duration-300"
-          >
-            Wishlist
+          <Link to="/wishlist" className="relative">
+            <span className="text-white">Wishlist</span>
+            {wishlist.length > 0 && ( // Check if there are items in the wishlist
+              <span className="absolute  bg-blue-500 text-white text-xs rounded-full px-1">
+                {wishlist.length}
+              </span>
+            )}
           </Link>
         </div>
 

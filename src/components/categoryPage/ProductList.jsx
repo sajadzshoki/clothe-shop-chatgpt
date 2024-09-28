@@ -1,7 +1,7 @@
 // ProductList.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoadingSpinner from '../components/LoadingSpinner';
+import LoadingSpinner from '../LoadingSpinner';
 
 const ProductList = ({ loading, products, filteredProducts, addToCart, addToWishlist }) => {
   return (

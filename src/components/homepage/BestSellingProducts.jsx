@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { fetchUnsplashImages } from "../services/unsplashService"; // Importing the utility
-import { CartContext } from "../context/CartContext"; // Import CartContext
-import { useWishlist } from "../context/WishlistContext"; // Import useWishlist
-import { getRandomPrice } from '../utils'; // Adjust the path as needed
+import { fetchUnsplashImages } from "../../services/unsplashService"; // Importing the utility
+import { CartContext } from "../../context/CartContext"; // Import CartContext
+import { useWishlist } from "../../context/WishlistContext"; // Import useWishlist
+import { getRandomPrice } from '../../utils'; // Adjust the path as needed
 const bestSellingItems = [
   { name: "Premium Suit", query: "premium suit" },
   { name: "Leather Jacket", query: "leather jacket" },

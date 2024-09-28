@@ -1,11 +1,9 @@
-
-
-
+/* eslint-disable react-hooks/exhaustive-deps */
  import React, { useEffect, useState, useContext } from 'react';
  import { useParams } from 'react-router-dom';
  import { fetchUnsplashImages } from '../services/unsplashService';
- import FiltersSidebar from '../components/FiltersSidebar'; // Import FiltersSidebar component
- import ProductList from '../components/ProductList'; // Import ProductList component
+ import FiltersSidebar from '../components/categoryPage/FiltersSidebar'; // Import FiltersSidebar component
+ import ProductList from '../components/categoryPage/ProductList'; // Import ProductList component
  import { useWishlist } from '../context/WishlistContext'; // Assuming you have a Wishlist context
  import { CartContext } from '../context/CartContext'; // Assuming you have a Cart context
  

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { CartContext } from '../context/CartContext'; // Import CartContext
-import { fetchUnsplashImages } from '../services/unsplashService'; // Importing the utility
-import { getRandomPrice } from '../utils'; // Adjust the path as needed
+import { CartContext } from '../../context/CartContext'; // Import CartContext
+import { fetchUnsplashImages } from '../../services/unsplashService'; // Importing the utility
+import { getRandomPrice } from '../../utils'; // Adjust the path as needed
 const featuredProducts = [
   { name: 'Casual Sneakers', query: 'casual sneakers' },
   { name: 'Summer Dress', query: 'summer dress' },
