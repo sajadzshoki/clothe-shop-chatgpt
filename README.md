@@ -161,3 +161,83 @@ make a random number function from 1 to 300 to use it wherever the app has stati
 how do i use the function here to return me a random price for each product
 
 ### 48.
+what else can i add to my app
+
+### 49.
+Show related products on product detail pages to encourage additional purchases
+
+### 50.
+add this one 
+Blog or Style Guide Section
+Create a blog or style guide section with articles, fashion tips, and style inspiration to engage users and drive traffic.
+
+### 51.
+how to acces this two pages
+
+### 52.
+add more blogPosts and use real images from the unsplash
+use real images in this BlogDetailPage
+
+### 53.
+make more blogPosts 
+
+### 54.
+change the style of the CategoryPage to row cards which the image of the product is on le left and the rest is the name and price and description ,my current component looks like this 
+
+### 55.
+that's better , change the image to square and smaller and make the cards thinner too , add add to whishlist button , ratings to the right side of the card
+
+### 56.
+add hover effect to the image or whole card and let the whole card be the link to the product page
+
+### 57.
+change the returned products number to a random number between 10 to 30
+
+### 58.
+add a small add to cart button next to the price  
+
+### 59.
+put the add to cart button bellow the price , use real related names for each product like nike , adidas or ... instead product 1 2 3 if possible , my current component looks like this 
+
+### 60.
+do all the suggestions 
+
+### 61.
+it's not responsive well for mobile device , just change the style for mobile device
+
+### 62.
+give me an object array separated by comma of all famous clothing brand names , shirts , suits , shoes , pants , hats , jackets and ... ,no description needed
+
+### 63.
+add filter options sidebar to the categorypage such as filter by brand , color , price range , size and ...
+
+### 64.
+make the brand filter  section scrollable , change the style of the price filter , and add a reset filters on the top  
+
+### 65.
+separate the filters sidebar and products card section into to components so the categorypage just renders the two components to make the app cleaner 
+make the sidebar filters sticky
+
+### 66.
+refactor ProductDetailPage component 
+
+### 67.
+that's good , change the style of the product detail component , make it cleaner
+
+### 68.
+put related images to clothing in product detailpage
+
+### 69.
+use real images fetch from unsplash
+
+### 70.
+add a number badge to wishlist in navbar
+
+### 71.
+add add to cart button to wishlistpage
+
+### 72.
+refactor the hero slider section and make something completely  different , chnage it's name to Hero , use unsplash api 
+
+### 73.
+let the shop now button takes the user somewhere appropriate  in the app
