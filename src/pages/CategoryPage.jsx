@@ -1,55 +1,120 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { fetchUnsplashImages } from '../services/unsplashService';
-import LoadingSpinner from '../components/LoadingSpinner'; // Import the LoadingSpinner component
 
-const CategoryPage = () => {
-  const { categoryName } = useParams();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
 
-  useEffect(() => {
-    const fetchCategoryProducts = async () => {
-      setLoading(true); // Start loading
-      const images = await fetchUnsplashImages(categoryName, 10);
-      setProducts(images);
-      setLoading(false); // End loading
-    };
 
-    fetchCategoryProducts();
-  }, [categoryName]);
-
-  return (
-    <div className="container mx-auto p-10">
-      <h1 className="text-4xl font-bold mb-6">{categoryName} Products</h1>
-      {loading ? (
-        <LoadingSpinner /> // Show loading spinner while fetching data
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product, index) => (
-            <Link key={index} to={`/product/${index + 1}`}>
-              <div
-                className="relative group h-80 w-full bg-gray-900 rounded-lg overflow-hidden"
-                style={{ backgroundImage: `url(${product.urls?.regular})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-100 group-hover:opacity-75 transition-opacity duration-300">
-                  <div className="text-center text-white">
-                    <h3 className="text-2xl font-bold mb-2">Product {index + 1}</h3>
-                    <a
-                      href="#"
-                      className="inline-block px-6 py-2 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition duration-300"
-                    >
-                      View Product
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default CategoryPage;
+ import React, { useEffect, useState, useContext } from 'react';
+ import { useParams } from 'react-router-dom';
+ import { fetchUnsplashImages } from '../services/unsplashService';
+ import FiltersSidebar from '../components/FiltersSidebar'; // Import FiltersSidebar component
+ import ProductList from '../components/ProductList'; // Import ProductList component
+ import { useWishlist } from '../context/WishlistContext'; // Assuming you have a Wishlist context
+ import { CartContext } from '../context/CartContext'; // Assuming you have a Cart context
+ 
+ const CategoryPage = () => {
+   const { categoryName } = useParams();
+   const [products, setProducts] = useState([]);
+   const [loading, setLoading] = useState(true);
+   const { addToWishlist } = useWishlist(); // Use Wishlist context
+   const { addToCart } = useContext(CartContext); // Use Cart context
+ 
+   const [filters, setFilters] = useState({
+     brand: [],
+     color: [],
+     priceRange: [0, 100],
+     size: [],
+   });
+ 
+   const productNames = [
+    "Nike", "Adidas", "Puma", "Reebok", "Under Armour", "Gucci", "Louis Vuitton", "Prada",
+   "Versace", "Zara", "H&M", "Levi's", "Calvin Klein", "Tommy Hilfiger", "Ralph Lauren",
+   "Chanel", "Burberry", "Dolce & Gabbana", "Armani", "Balenciaga", "Supreme", "Lacoste",
+   "Fendi", "Valentino", "Bottega Veneta", "Mango", "ASOS", "Gap", "American Eagle", 
+   "Uniqlo", "J.Crew", "Everlane", "North Face", "Columbia", "Patagonia", "Carhartt", 
+   "Wrangler", "Lee", "Dockers", "Diesel", "Hugo Boss", "Mizuno", "Skechers", "New Balance",
+   "Converse", "Vans", "Timberland", "Dr. Martens", "Ugg", "Crocs", "Kappa", "Champion", 
+   "Billionaire Boys Club", "A Bathing Ape", "Fear of God", "A.P.C.", "Isabel Marant", 
+   "Off-White", "Palm Angels", "Stussy", "Acne Studios", "Ganni", "Maison Margiela", 
+   "Rick Owens", "Yeezy", "Alo Yoga", "Lululemon", "Gymshark", "Fabletics", "Athleta"
+   ];
+  
+   const productDescriptions = [
+     "The ultimate comfort and style with responsive cushioning for everyday wear.",
+     "High-performance running shoes designed for superior comfort and support.",
+     "Classic suede sneakers perfect for casual wear with timeless style.",
+     "A retro-inspired sneaker that never goes out of fashion, blending style with comfort.",
+     "Innovative footwear with zero-gravity feel, perfect for runners and fitness enthusiasts.",
+     "Luxury leather sneakers with a contemporary design for a premium look.",
+     "Iconic and stylish, these designer sneakers make a bold statement.",
+     "Futuristic design meets functionality with these fashion-forward kicks.",
+     "A chunky silhouette paired with bold colors, ideal for streetwear fashion.",
+     "Elegant leather boots perfect for a refined and polished appearance."
+   ];
+ 
+   useEffect(() => {
+     const fetchCategoryProducts = async () => {
+       setLoading(true);
+       const randomProductCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+       const images = await fetchUnsplashImages(categoryName, randomProductCount);
+ 
+       const productDetails = images.map((image, index) => ({
+         id: index + 1,
+         name: productNames[index % productNames.length],
+         price: `$${(Math.random() * 100).toFixed(2)}`,
+         description: productDescriptions[index % productDescriptions.length],
+         imageUrl: image.urls?.regular || '',
+         rating: (Math.random() * 5).toFixed(1),
+       }));
+       setProducts(productDetails);
+       setLoading(false);
+     };
+ 
+     fetchCategoryProducts();
+   }, [categoryName]);
+ 
+   const handleFilterChange = (filterType, value) => {
+     setFilters((prev) => ({
+       ...prev,
+       [filterType]: value,
+     }));
+   };
+ 
+   const resetFilters = () => {
+     setFilters({
+       brand: [],
+       color: [],
+       priceRange: [0, 100],
+       size: [],
+     });
+   };
+ 
+   const filteredProducts = products.filter((product) => {
+     const withinPriceRange =
+       parseFloat(product.price.slice(1)) >= filters.priceRange[0] &&
+       parseFloat(product.price.slice(1)) <= filters.priceRange[1];
+ 
+     return (
+       withinPriceRange &&
+       (filters.brand.length === 0 || filters.brand.includes(product.name))
+     );
+   });
+ 
+   return (
+     <div className="flex">
+       <FiltersSidebar
+         filters={filters}
+         handleFilterChange={handleFilterChange}
+         resetFilters={resetFilters}
+         productNames={productNames}
+       />
+       <ProductList
+         loading={loading}
+         products={products}
+         filteredProducts={filteredProducts}
+         addToCart={addToCart}
+         addToWishlist={addToWishlist}
+       />
+     </div>
+   );
+ };
+ 
+ export default CategoryPage;
+ 
